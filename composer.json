@@ -1,0 +1,28 @@
+{
+    "name": "jai/blog",
+    "description": " Jai presenting simple blog ",
+    "authors": [
+        {
+            "name": "jai",
+            "email": "kora.jayaram@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*",
+        "laracasts/validation": "~1.0",
+        "laracasts/flash": "~1.0",
+        "laracasts/presenter": "0.1.*"
+    },
+    "autoload": {
+         "classmap": [
+            "src/controllers",
+            "src/models"
+        ],
+        "psr-4": {
+            "Jai\\Blog\\": "src/"
+            
+        }
+    },
+    "minimum-stability": "dev"
+}
