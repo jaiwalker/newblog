@@ -1,7 +1,7 @@
-<?php
-
-	use Acmew\Blogs\Events\BlogPublished;
+<?php 
+	use Jai\Blog\Acmew\Blogs\Events\BlogPublished;
 	use Laracasts\Commander\Events\EventGenerator;
+	//use Jai\Blog\models\comment;
 
 	class Blog extends \Eloquent
 	{
@@ -30,7 +30,7 @@
 		
 		public function comments()
 		{
-			return $this->hasMany('comment');
+			return $this->hasMany('Comment');
 		}
 
 	}

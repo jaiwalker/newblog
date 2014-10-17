@@ -8,7 +8,7 @@
  */
 namespace Jai\Blog\Acmew\comments;
 
-use Acme\Blogs\BlogRepository;
+use Jai\Blog\Acmew\Blogs\BlogRepository;
 use Laracasts\Commander\CommandHandler;
 //use Acme\comments\CommentRepository;
 use Laracasts\Commander\Events\DispatchableTrait;

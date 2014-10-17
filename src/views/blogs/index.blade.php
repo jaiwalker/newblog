@@ -1,4 +1,4 @@
-@extends('template.main')
+@extends('blog::template.main')
 
 
 @section('content')
@@ -18,6 +18,6 @@
       </div><!-- /.row -->
 <h3>Create new posts </h3>
 <!-- Never menction blade .php and ;-->
-@include('blogs/partials/_form')
+@include('blog::blogs/partials/_form')
 
 @stop

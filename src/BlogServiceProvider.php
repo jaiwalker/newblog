@@ -13,7 +13,7 @@ class BlogServiceProvider extends ServiceProvider {
 	
 	public function boot()
 	{
-		 $this->package('jai/blog');
+		 $this->package('jai/blog',null, __DIR__); //  this  has to be specified for psr-4  compatibility
 		if (\Config::get('blog::routes.use_package_routes', true))
 		{
 			include __DIR__ . '/routes.php';
@@ -27,7 +27,7 @@ class BlogServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		// $this->package('jai/blog','blog');
 	}
 
 	/**

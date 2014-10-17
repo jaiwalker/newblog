@@ -1,11 +1,11 @@
-<?php
+<?php 
 	
 	use Jai\Blog\Acmew\Blogs\BlogsForm;
 	use Laracasts\Commander\CommandBus;
 
 	use Laracasts\Commander\CommanderTrait;
 	use Jai\Blog\Acmew\Blogs\PublishBlogCommand;
-	//use Comment;
+	
 
 	class BlogsController extends \BaseController {
 
@@ -44,7 +44,7 @@
 	
 		$blogs = Blog::where('status',1)->get();
 		 
-		return View::make('blogs/index',['blogs' => $blogs ] );
+		return View::make('blog::blogs/index',['blogs' => $blogs ] );
 	}
 
 	/**
@@ -91,7 +91,7 @@
 		
 		$blog = Blog::with('comments')->findOrFail($id);
 	       
-		return View::make ('blogs/show', [ 'blog' => $blog ]);
+		return View::make ('blog::blogs/show', [ 'blog' => $blog ]);
 	}
 
 	/**

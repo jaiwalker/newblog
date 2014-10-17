@@ -1,6 +1,6 @@
 
 
-@extends('template.main')
+@extends('blog::template.main')
 
 
 @section('content')
@@ -30,7 +30,7 @@
       </div>
      
   @if($currentUser) 
-    @include('blogs.partials._comment_form')
+    @include('blog::blogs.partials._comment_form')
     
   @endif    
   <br/>
