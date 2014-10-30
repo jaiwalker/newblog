@@ -1,8 +1,10 @@
 <?php
 	use Laracasts\Commander\CommanderTrait;
 	use Jai\Blog\Acmew\Comments\PublishCommentCommand;
+
 	use Laracasts\Validation\FormValidationException;
 	use Jai\Blog\Acmew\Comments\PublishCommentsssValidator as commentForm;
+
 	
 	class CommentsController extends \BaseController {
 	
@@ -13,7 +15,7 @@
 		function __construct(commentForm $commentForm )
 		{
 			$this->commentForm = $commentForm;
-			
+
 		}
 		
 		/**
@@ -46,11 +48,13 @@
 	 */
 	public function store()
 	{
+
 	   
 		$authentication = \App::make('authenticator');
 			// Getting the data from the form --  and adding the  curret user id to it 
 		$input = array_add(Input::only('comment', 'blog_id'),'userId',$authentication->getLoggedUser()->id);
 		
+
 		try
 		{
 			$this->commentForm->validate($input);
@@ -67,7 +71,7 @@
 			
 		} catch (FormValidationException $e)
 		{
-			
+
 			return Redirect::back()->withInput()->withErrors($e->getErrors());
 		}
 		

@@ -4,7 +4,7 @@
 
 
 @section('content')
-      
+
   <h1>{{ ucfirst($blog->name); }}</h1>
   <article>
    <p>
@@ -14,7 +14,9 @@
   <p><strong>{{ $blog->author }}</strong></p>
    
    <div>
+
      @if($comments_settings)
+
     <h4>Comments</h4>
        @if($comments = $blog->comments) 
                      
@@ -34,6 +36,7 @@
     
   @endif    
   <br/>
+
   @endif 
 
 @stop

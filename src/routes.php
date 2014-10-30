@@ -30,11 +30,14 @@
 	});
 
 	# Blogs
+
 	Route::when('blogs/store', 'logged', array('post','put','store','delete'));
+
 	Route::post ('blogs/store',['as' => 'blogs.store','uses' => 'BlogsController@store'] );
 
 	Route::get ('blogs',['as' => 'blog','uses' => 'BlogsController@index'] );
 	Route::get ('blogs/{id}',['as' => 'blog.show','uses' => 'BlogsController@show'] );
+
 
 //	# Registration
 //	Route::resource('registration','RegistrationController');
@@ -63,6 +66,7 @@
 	# Commnets 
 	Route::post('blogs/{id}/comments', ['as'   => 'comment_path',
 									 'uses' => 'CommentsController@store']);
+
 	
 	# Using Auth lib  For #--dashboard--#
   Route::group(['before' => ['logged', 'can_see']], function ()
@@ -74,3 +78,4 @@
 	  Route::post('/admin/blogs/dashboard/settings/edit', ['as'   => 'postEditSettings',
 														 'uses' => 'BlogssettingsController@postEditSettings']);
   });	  
+

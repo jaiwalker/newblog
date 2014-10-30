@@ -11,7 +11,10 @@ namespace Jai\Blog\Acmew\Blogs;
 
 use Blog;
 use Comment;
+
 use Jacopo\Authentication\Models\User as User;
+
+
 
 class BlogRepository{
 
@@ -26,6 +29,7 @@ class BlogRepository{
 	       
 		$com = Comment::publish($comment,$blog_id);
 		                                               
+
 		$comment = User::findOrFail($user_id)->comment()->save($com);
 		
 		return $comment;

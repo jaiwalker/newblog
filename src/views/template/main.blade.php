@@ -45,19 +45,23 @@
                  @if (Auth::guest() )
                 <li><a href="/register">Registration</a></li>
                 @endif
+
                 
+
               </ul>
                <ul class="nav navbar-nav navbar-right" style="padding-right:50px;">
 
                  @if($currentUser)
                      <li class="dropdown">
 	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+
 	                        <img src="{{ $currentUser->presenter()->gravatar() }}" alt="{{ $currentUser->email }}"/>
 	                      <span class="caret"></span></a>
 	                    <ul class="dropdown-menu" role="menu">
 	                        {{--<li>{{ link_to_route('profile_path','Your profile',$currentUser->email) }}</li>--}}
 	                        <li><a href="#">Another action</a></li>
 	                        <li><a href="/user/logout">logout</a></li>
+
 	                      <li class="divider"></li>
 	                        <li class="dropdown-header">Nav header</li>
 	                        <li><a href="#">Separated link</a></li>

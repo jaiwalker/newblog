@@ -2,9 +2,11 @@
 	
 	use Jai\Blog\Acmew\Blogs\BlogsForm;
 	use Laracasts\Commander\CommandBus;
+
 	use Laracasts\Commander\CommanderTrait;
 	use Jai\Blog\Acmew\Blogs\PublishBlogCommand;
 	use Laracasts\Validation\FormValidationException;
+
 	
 
 	class BlogsController extends \BaseController {
@@ -41,6 +43,7 @@
 	 */
 	public function index()
 	{
+
 		$blogs = Blog::where('status',1)->get();
 		 
 		return View::make('blog::blogs/index',['blogs' => $blogs ] );
@@ -65,21 +68,19 @@
 	 */
 	public function store()
 	{
+
 		// making this more relavent 
 		$input = Input::only('name','description','author');
 		try
 		{
 			$this->blogsForm->validate($input);
 			
-				// Input that has  to be assigned to user
+		// Input that has  to be assigned to user
 		// Using  command bus system
 		extract(Input::only('name','description','author'));
 		$command = new PublishBlogCommand($name,$description,$author);
 		$r = $this->execute($command);
-
-//		$input = Input::only('name', 'description', 'author');
-//		$this->blogsForm->validate($input);
-//	    $post = Blog::create($input);
+			
 		Laracasts\Flash\Flash::overlay('Glad that you have posted soemthing.. good '); // success // error- red
 		return Redirect::back();
 			
@@ -89,18 +90,6 @@
 			return Redirect::back()->withInput()->withErrors($e->getErrors());
 		}
 		
-		
-//		// Input that has  to be assigned to user
-//		// Using  command bus system
-//		extract(Input::only('name','description','author'));
-//		$command = new PublishBlogCommand($name,$description,$author);
-//		$r = $this->execute($command);
-//
-////		$input = Input::only('name', 'description', 'author');
-////		$this->blogsForm->validate($input);
-////	    $post = Blog::create($input);
-//		Flash::overlay('Glad that you have posted soemthing.. good '); // success // error- red
-//		return Redirect::home();
 	}
 
 	/**
@@ -112,6 +101,7 @@
 	 */
 	public function show($id)
 	{
+
 		$setting = Blogsettings::where(['name'=>'comments'])->first();
 	 
 	    if($setting->status){
@@ -120,8 +110,8 @@
 			$blog = Blog::findOrFail($id);
 		}
 		
-		
 		return View::make ('blog::blogs/show', [ 'blog' => $blog,'comments_settings' =>$setting->status ]);
+
 	}
 
 	/**
@@ -162,7 +152,9 @@
 
 	public function notifyadmin()
 	{
+
 		Laracasts\Flash\Flash::message('Admin has been notified with your post  '); // success // error- red
+
 		return Redirect::home();
 	}
 
