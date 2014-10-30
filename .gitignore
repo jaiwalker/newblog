@@ -2,7 +2,5 @@
 composer.phar
 composer.lock
 .DS_Store
-<<<<<<< HEAD
 .idea/
-=======
->>>>>>> 3a68662121ee91cc76cd93c4d3cc5efd530940b7
+
