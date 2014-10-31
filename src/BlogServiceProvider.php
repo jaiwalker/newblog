@@ -1,6 +1,10 @@
 <?php namespace Jai\Blog;
 
+use Cartalyst\Sentry\Facades\CI\Sentry;
 use Illuminate\Support\ServiceProvider;
+use Jai\Authentication\AuthenticationServiceProvider;
+use Jai\Authentication\Controllers\AuthController;
+
 
 class BlogServiceProvider extends ServiceProvider {
 
@@ -27,7 +31,20 @@ class BlogServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		// $this->package('jai/blog','blog');
+	 
+		  $this->app['blog'] = $this->app->share(function($app)
+		  {
+			 
+			  return new Blog;
+		  });
+		
+		$this->app->booting(function()
+		{
+		  $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+		  $loader->alias('Blog', 'Jai\Blog\Facades\Blog');
+		});
+		
+		$this->app->register('Jai\Authentication\AuthenticationServiceProvider');
 	}
 
 	/**
@@ -37,7 +54,7 @@ class BlogServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('blog');
 	}
 
 }

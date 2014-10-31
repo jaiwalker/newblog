@@ -1,4 +1,4 @@
-<?php 
+<?php  namespace Jai\Blog\controllers;
 	
 	use Jai\Blog\Acmew\Blogs\BlogsForm;
 	use Laracasts\Commander\CommandBus;
@@ -6,6 +6,7 @@
 	use Laracasts\Commander\CommanderTrait;
 	use Jai\Blog\Acmew\Blogs\PublishBlogCommand;
 	use Laracasts\Validation\FormValidationException;
+	//use Jai\Authentication;
 
 	
 
@@ -22,16 +23,18 @@
 		 */
 		private $blogsForm;
 		
+		
 		/**
 		 * @param \Laracasts\Commander\CommandBus $commandBus
 		 * @param \Acmew\Forms\BlogsForm $blogsForm
 		 *
 		 * @internal param \Acme\Forms\BlogsForm $blogsForm
 		 */
-		function __construct(CommandBus $commandBus, BlogsForm $blogsForm )
+		function __construct( CommandBus $commandBus, BlogsForm $blogsForm )
 		{
 			$this->commandBus = $commandBus;
 			$this->blogsForm = $blogsForm;
+			
 		}
 
 

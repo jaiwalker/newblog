@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12 margin-bottom-12">
-        <a href="{{URL::action('Jacopo\Authentication\Controllers\PermissionController@editPermission')}}" class="btn btn-info pull-right"><i class="fa fa-plus"></i> Add New</a>
+        <a href="{{URL::action('Jai\Authentication\Controllers\UserController@editUser')}}" class="btn btn-info pull-right"><i class="fa fa-plus"></i> Add New</a>
     </div>
 </div>
 @if( ! $blogs->isEmpty() )
@@ -23,8 +23,8 @@
                  <td>{{$blog->status ? '<i class="fa fa-circle green"></i>' : '<i class="fa fa-circle-o red"></i>'}}</td>
                 <td style="witdh:10%">
                     @if(! $blog->protected)
-                    <a href="{{URL::action('Jacopo\Authentication\Controllers\PermissionController@editPermission', ['id' => $blog->id])}}"><i class="fa fa-pencil-square-o fa-2x"></i></a>
-                    <a href="{{URL::action('Jacopo\Authentication\Controllers\PermissionController@deletePermission',['id' => $blog->id, '_token' => csrf_token()])}}" class="margin-left-5"><i class="fa fa-trash-o delete fa-2x"></i></a>
+                    <a href="{{URL::action('Jai\Authentication\Controllers\UserController@editUser', ['id' => $blog->id])}}"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+                    <a href="{{URL::action('Jai\Authentication\Controllers\UserController@editUser',['id' => $blog->id, '_token' => csrf_token()])}}" class="margin-left-5"><i class="fa fa-trash-o delete fa-2x"></i></a>
                     @else
                         <i class="fa fa-times fa-2x light-blue"></i>
                         <i class="fa fa-times fa-2x margin-left-12 light-blue"></i>

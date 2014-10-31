@@ -12,11 +12,9 @@ use Jai\Blog\Acmew\Blogs\BlogRepository;
 use Laracasts\Commander\CommandHandler;
 //use Acme\comments\CommentRepository;
 use Laracasts\Commander\Events\DispatchableTrait;
-<<<<<<< HEAD
-//use Comment;
-=======
+
 use Comment;
->>>>>>> 3a68662121ee91cc76cd93c4d3cc5efd530940b7
+
 
 class PublishCommentCommandHandler implements CommandHandler
 {
@@ -47,10 +45,7 @@ class PublishCommentCommandHandler implements CommandHandler
 //      $this->dispatchEventsFor($comment);
        
        //  try this new method
-<<<<<<< HEAD
-     
-=======
->>>>>>> 3a68662121ee91cc76cd93c4d3cc5efd530940b7
+
       $comment = $this->blogRepository->leaveComment($command->comment, $command->blog_id, $command->userId);
       
       return $comment;

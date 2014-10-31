@@ -16,11 +16,7 @@ class PublishCommentCommand
 	
 	public function __construct($comment,$blog_id,$userId)
 	{
-<<<<<<< HEAD
-		 
-=======
-		
->>>>>>> 3a68662121ee91cc76cd93c4d3cc5efd530940b7
+
 		$this->comment = $comment;
 		$this->userId = $userId;
 		$this->blog_id = $blog_id;
