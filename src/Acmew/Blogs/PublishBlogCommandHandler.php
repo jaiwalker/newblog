@@ -8,9 +8,10 @@
  */
 
 namespace Jai\Blog\Acmew\Blogs;
+
 use Laracasts\Commander\CommandHandler;
 use Laracasts\Commander\Events\DispatchableTrait;
-use Blog;
+use Jai\Blog\Models\Blog;
 
 
 class PublishBlogCommandHandler implements CommandHandler{

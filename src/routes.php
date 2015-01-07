@@ -12,8 +12,13 @@
 */
 
 	# Event Listen
-	//Event::listen('Acme.Blogs.Events.BlogPublished', 'EmailNotifier@whenblogisPublished');  // this is just an
-	Event::listen('Acme.*', 'Acme\Listeners\EmailNotifier');
+//Event::listen('Jai.Blog.Acmew.Blogs.Events.BlogWasPublished', function()
+//{
+//       dd("this is fired");
+//});
+
+	Event::listen('Jai.Blog.Acmew.Blogs.Events.BlogWasPublished', 'Jai\Blog\Acmew\Listeners\EmailNotifier@whenBlogIsPublished');  // this is just an
+	//Event::listen('Acmew.*', 'Acmew\Listeners\EmailNotifier');
 
 	# Home
 	Route::get('/', ['as'   => 'home',
@@ -61,7 +66,7 @@
 //	Route::get('@{email}',[
 //						 'as'=>'profile_path',
 //					 	'uses' => 'UsersController@show'
-//						 ]);
+//						 ]);                                                   
 //	
 	# Commnets 
 	Route::post('blogs/{id}/comments', ['as'   => 'comment_path',
@@ -77,5 +82,13 @@
 														 'uses' => 'BlogssettingsController@index']);
 	  Route::post('/admin/blogs/dashboard/settings/edit', ['as'   => 'postEditSettings',
 														 'uses' => 'BlogssettingsController@postEditSettings']);
+	  Route::get('/admin/blogs/dashboard/blog/edit', ['as'   => 'getEditPost',
+														 'uses' => 'AdminBlogController@edit']);
+	  Route::post('/admin/blogs/dashboard/blog/edit', ['as'   => 'postEditPost',
+														 'uses' => 'AdminBlogController@store']);
+	  Route::post('/admin/blogs/dashboard/blog/delete', ['as'   => 'postDelete',
+														 'uses' => 'AdminBlogController@delete']);
+	  
+	
   });	  
 

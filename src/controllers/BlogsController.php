@@ -1,4 +1,4 @@
-<?php  namespace Jai\Blog\controllers;
+<?php  
 	
 	use Jai\Blog\Acmew\Blogs\BlogsForm;
 	use Laracasts\Commander\CommandBus;
@@ -6,6 +6,7 @@
 	use Laracasts\Commander\CommanderTrait;
 	use Jai\Blog\Acmew\Blogs\PublishBlogCommand;
 	use Laracasts\Validation\FormValidationException;
+    use Jai\Blog\Models\Blog;
 	//use Jai\Authentication;
 
 	
@@ -48,7 +49,7 @@
 	{
 
 		$blogs = Blog::where('status',1)->get();
-		 
+		
 		return View::make('blog::blogs/index',['blogs' => $blogs ] );
 	}
 
@@ -84,7 +85,7 @@
 		$command = new PublishBlogCommand($name,$description,$author);
 		$r = $this->execute($command);
 			
-		Laracasts\Flash\Flash::overlay('Glad that you have posted soemthing.. good '); // success // error- red
+		//Laracasts\Flash\Flash::overlay('Glad that you have posted soemthing.. good '); // success // error- red
 		return Redirect::back();
 			
 		} catch (FormValidationException $e)

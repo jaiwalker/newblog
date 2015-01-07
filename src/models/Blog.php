@@ -1,5 +1,5 @@
-<?php 
-	use Jai\Blog\Acmew\Blogs\Events\BlogPublished;
+<?php  namespace Jai\Blog\Models;
+	use Jai\Blog\Acmew\Blogs\Events\BlogWasPublished;
 	use Laracasts\Commander\Events\EventGenerator;
 	//use Jai\Blog\models\comment;
 
@@ -22,8 +22,8 @@
 		public static function publish($name, $description, $author)
 		{
 			$blog = new static(compact('name', 'description', 'author'));  //ass need to be passed as array
-
-			$blog->raise(new BlogPublished($blog));
+			        
+			$blog->raise(new BlogWasPublished($blog));
 
 			return $blog;
 		}
@@ -32,5 +32,7 @@
 		{
 			return $this->hasMany('Comment');
 		}
+		
+
 
 	}

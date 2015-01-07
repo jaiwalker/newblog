@@ -31,7 +31,7 @@ class BlogServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-	 
+	   // $this->app->bind('blog','Jai\Blog\Blog');
 		  $this->app['blog'] = $this->app->share(function($app)
 		  {
 			 
@@ -40,8 +40,8 @@ class BlogServiceProvider extends ServiceProvider {
 		
 		$this->app->booting(function()
 		{
-		  $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-		  $loader->alias('Blog', 'Jai\Blog\Facades\Blog');
+			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+			$loader->alias('Blog', 'Jai\Blog\Facades\Blog');
 		});
 		
 		$this->app->register('Jai\Authentication\AuthenticationServiceProvider');
