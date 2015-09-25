@@ -1,11 +1,11 @@
-## Laravel PHP Framework
+## Blog pakcage for DMS Backend 
 
- This a sample blog 
+ This a Simple Blog Package for DMS backend 
 
-### Contributing To Laravel
+### Usage 
+ 
+  This  uses DMS Backend as core Package  and use this as Extensions.
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+### Installation 
+  "Composer Require" 
 
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
